@@ -1,6 +1,6 @@
 ---
 - name: Get current installed Docker version
-  command: "{{ repoquery_cmd }} --installed --qf '%{version}' docker"
+  command: "{{ repoquery_cmd }} --installed --qf '%{version}' docker-engine"
   when: not openshift.common.is_atomic | bool
   register: curr_docker_version
   changed_when: false
@@ -17,7 +17,7 @@
 
 - name: Get latest available version of Docker
   command: >
-    {{ repoquery_cmd }} --qf '%{version}' "docker"
+    {{ repoquery_cmd }} --qf '%{version}' "docker-engine"
   register: avail_docker_version
   failed_when: false
   changed_when: false
@@ -40,7 +40,7 @@
 # Make sure Docker is installed, but does not update a running version.
 # Docker upgrades are handled by a separate playbook.
 - name: Install Docker
-  action: "{{ ansible_pkg_mgr }} name=docker{{ '-' + docker_version if docker_version is defined else '' }} state=present"
+  action: "{{ ansible_pkg_mgr }} name=docker-engine{{ '-' + docker_version if docker_version is defined else '' }} state=present"
   when: not openshift.common.is_atomic | bool
 
 - name: Ensure docker.service.d directory exists
