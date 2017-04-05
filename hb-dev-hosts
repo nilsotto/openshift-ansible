@@ -7,6 +7,7 @@ nodes
 [OSEv3:vars]
 # SSH user, this user should allow ssh based auth without requiring a password
 # deployment type valid values are origin, online, atomic-enterprise and openshift-enterprise
+#deployment_type=openshift-enterprise
 deployment_type=origin
 openshift_router_selector='region=ingress'
 openshift_registry_selecto='region=infra'
@@ -24,16 +25,13 @@ docker_log_driver=json-file
 # If ansible_ssh_user is not root, ansible_become must be set to true
 #ansible_become=true
 
-#deployment_type=openshift-enterprise
 
 # uncomment the following to enable htpasswd authentication; defaults to DenyAllPasswordIdentityProvider
 #openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 # host group for masters
 [masters]
-osh-dev-m01
-osh-dev-m02
-osh-dev-m03
+osh-dev-m0[1:3]
 
 # host group for nodes, includes region info
 [nodes]
