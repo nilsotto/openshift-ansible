@@ -8,8 +8,8 @@ nodes
 # SSH user, this user should allow ssh based auth without requiring a password
 # deployment type valid values are origin, online, atomic-enterprise and openshift-enterprise
 deployment_type=origin
-openshift_router_selector='region:ingress'
-openshift_registry_selecto='region:infra'
+openshift_router_selector='region=ingress'
+openshift_registry_selecto='region=infra'
 
 # Specify the generic release of OpenShift to install. This is used mainly just during installation, after which we
 # rely on the version running on the first master. Works best for containerized installs where we can usually
