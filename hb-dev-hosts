@@ -35,10 +35,7 @@ osh-dev-m03
 
 # host group for nodes, includes region info
 [nodes]
-osh-dev-m01 openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
-osh-dev-m02 openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
-osh-dev-m03 openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
-osh-dev-n01 openshift_node_labels="{'region': 'primary', 'zone': 'drammen'}"
-osh-dev-n02 openshift_node_labels="{'region': 'primary', 'zone': 'drammen'}"
-osh-dev-i01 openshift_node_labels="{'region': 'primary', 'zone': 'drammen'}"
-osh-dev-r01 openshift_node_labels="{'region': 'primary', 'zone': 'drammen'}"
+osh-dev-m0[1:3] openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
+osh-dev-i01 openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
+osh-dev-r01 openshift_node_labels="{'region': 'infra', 'zone': 'drammen'}"
+osh-dev-n0[1:2] openshift_node_labels="{'region': 'primary', 'zone': 'drammen'}"
